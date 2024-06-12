@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Interests Page</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+</head>
+
+<body>
+    <header>
+        <div class="top">
+            <a class="logo" href="index.html">CapellaVolunteers<span class="dotcom">.org</span></a>
+        </div>
+        <nav>
+            <ul class="topnav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="invitation.html">Invitation</a></li>
+                <li><a href="volunteer.html">Volunteers</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="registration.html">Registration</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="confirmationData">
+        <!--Print all the values-->
+        <h2>Confirmation</h2>
+        <ul>
+            <li><strong>Username:</strong> <span id="userName"></span></li>
+            <li><strong>Password:</strong> <span id="password"></span></li>
+            <li><strong>First Name:</strong> <span id="firstName"></span></li>
+            <li><strong>Last Name:</strong> <span id="lastName"></span></li>
+            <li><strong>Email:</strong> <span id="email"></span></li>
+            <li><strong>Phone Number:</strong> <span id="phoneNumber"></span></li>
+            <li><strong>Sign up for newsletter:</strong> <span id="signUpNewsletter"></span></li>
+        </ul>
+    </section>
+
+    <script>
+        function getCookie(name) {
+            const value = `; ${document.cookie}`; //Gets cookie
+            const parts = value.split(`; ${name}=`); //Splits the cookie
+            if (parts.length === 2) { //Returns cookie value, if the name exists
+                return parts.pop().split(';').shift(); //Split by semicolon
+            } else {
+                return null;//Return null if the name doesn't exist
+            }
+        }
+
+        //Passing names through getCookie
+        const userName = getCookie('userName');
+        const password = getCookie('password');
+        const passwordVerify = getCookie('passwordVerify');
+        const firstName = getCookie('firstName');
+        const lastName = getCookie('lastName');
+        const email = getCookie('email');
+        const phoneNumber = getCookie('phoneNumber');
+        const signUpNewsletter = getCookie('signUpNewsletter');
+
+        //Append Cookie values
+        document.getElementById('userName').textContent = userName;
+        document.getElementById('password').textContent = password;
+        document.getElementById('firstName').textContent = firstName;
+        document.getElementById('lastName').textContent = lastName;
+        document.getElementById('email').textContent = email;
+        document.getElementById('phoneNumber').textContent = phoneNumber;
+        document.getElementById('signUpNewsletter').textContent = signUpNewsletter;
+    </script>
+
+    <footer>This events site is for IT3515 tasks.</footer>
+</body>
+
+</html>
